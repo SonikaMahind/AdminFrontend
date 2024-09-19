@@ -1,0 +1,48 @@
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  background-color: #6A0DAD;
+  color: white;
+  padding: 20px;
+  box-sizing: border-box;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.sidebarmenu {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebarmenu li {
+  margin-bottom: 15px;
+}
+
+/* Apply hover effect on the li instead of the a */
+.sidebarmenu li:hover {
+  background-color: #fff; /* Background on hover */
+  color: #6a0dad; /* Change text color */
+}
+
+.sidebarmenu li a {
+  color: white; /* Original text color */
+  text-decoration: none;
+  display:block;
+  padding: 10px;
+}
+
+.sidebarmenu li:hover a {
+  color: black; /* Change text color on li hover */
+}
+
+.logout-btn {
+  margin-top: 50px;
+  padding: 10px;
+  background-color: #fff;
+  color: #6A0DAD;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  
+}

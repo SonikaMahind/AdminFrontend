@@ -1,0 +1,35 @@
+.dashboard {
+    margin-left: 250px;
+    padding: 20px;
+    margin-right: 10px;
+  }
+  
+  .dashboard h1 {
+    margin-bottom: 20px;
+  }
+  
+  .widgets {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .widget {
+    width: 200px;
+    height: 100px;
+    background-color: #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+  }
+
+  .box1 {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 40%;
+  }
+  .box{
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+  }
