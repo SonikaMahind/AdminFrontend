@@ -2,12 +2,13 @@ import React from 'react'
 import "../Styles/event.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 function Event() {
   return (
     <div className="event">
       <h1>Events</h1>
-      <button className='btnadd'>Add</button>
+      <Link to="/addEvent"><button className='btnadd'>Add</button></Link>
       <table className="events-table">
         <thead>
           <tr>

@@ -1,3 +1,4 @@
+/* Sidebar Styles */
 .sidebar {
   width: 250px;
   height: 100vh;
@@ -8,6 +9,7 @@
   position: fixed;
   left: 0;
   top: 0;
+  transition: transform 0.3s ease;
 }
 
 .sidebarmenu {
@@ -19,7 +21,6 @@
   margin-bottom: 15px;
 }
 
-/* Apply hover effect on the li instead of the a */
 .sidebarmenu li:hover {
   background-color: #fff; /* Background on hover */
   color: #6a0dad; /* Change text color */
@@ -28,7 +29,7 @@
 .sidebarmenu li a {
   color: white; /* Original text color */
   text-decoration: none;
-  display:block;
+  display: block;
   padding: 10px;
 }
 
@@ -36,6 +37,7 @@
   color: black; /* Change text color on li hover */
 }
 
+/* Logout Button Styles */
 .logout-btn {
   margin-top: 50px;
   padding: 10px;
@@ -44,5 +46,64 @@
   border: none;
   cursor: pointer;
   width: 100%;
-  
+}
+
+/* Media Queries for Responsiveness */
+
+/* For large screens: desktop */
+@media (min-width: 1078px) {
+  .sidebar {
+    width: 250px; /* Default width for large screens */
+  }
+}
+
+/* For medium screens: tablets and small desktops */
+@media (max-width: 1077px) {
+  .sidebar {
+    width: 200px; /* Adjust width for medium screens */
+  }
+}
+
+/* For small screens: mobile devices */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 50%; /* Full width on mobile */
+    height: auto; /* Auto height for mobile */
+    position: fixed; /* Fixed positioning on mobile */
+    transform: translateX(-100%); /* Initially hidden */
+    top: 0; /* Ensure it sticks to the top */
+  }
+
+  .sidebar.active {
+    transform: translateX(0); /* Show sidebar when active */
+  }
+
+  .menu-toggle-btn {
+    display: block; /* Show toggle button */
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #6A0DAD;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1000; /* Ensure it's above other content */
+  }
+}
+
+/* For extra-small screens: very small devices */
+@media (max-width: 480px) {
+  .sidebar {
+    width: 50%; /* Full width on very small devices */
+    padding: 10px; /* Reduce padding */
+  }
+
+  .sidebarmenu li {
+    margin-bottom: 10px; /* Reduce margin */
+  }
+
+  .logout-btn {
+    padding: 8px; /* Reduce padding for logout button */
+  }
 }

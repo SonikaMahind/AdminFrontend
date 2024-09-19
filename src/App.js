@@ -6,6 +6,7 @@ import Event from "./admin/event";
 import Booking from "./admin/booking";
 import Login from "./admin/login";
 import Users from "./admin/users";
+import EventAddForm from "./admin/eventAddForm";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
                   <Route path="/event" element={<Event />} />
                   <Route path="/booking" element={<Booking/>}/>
                   <Route path="/users" element={<Users/>}></Route>
+                  <Route path="/addEvent" element={<EventAddForm/>}/>
                 </Routes>
               </div>
             </div>
