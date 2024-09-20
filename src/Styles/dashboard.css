@@ -44,33 +44,33 @@
   width: 800px;
   height: 400px;
   display: flex;
-  justify-content: center; /* Center the chart horizontally */
+  justify-content: center; 
 }
 
 @media (max-width: 1200px) {
   .box-item {
-    flex: 1 1 calc(33.33% - 20px); /* 3 items per row */
+    flex: 1 1 calc(33.33% - 20px);
   }
 }
 
 @media (max-width: 900px) {
   .box-item {
-    flex: 1 1 calc(50% - 20px); /* 2 items per row */
+    flex: 1 1 calc(50% - 20px);
   }
 }
 
 @media (max-width: 600px) {
   .box-item {
-    flex: 1 1 100%; /* 1 item per row */
+    flex: 1 1 100%;
   }
   .chart {
-    height: 300px; /* Adjust chart height for smaller screens */
+    height: 300px; 
   }
 }
 
 @media (max-width: 400px) {
   .dashboard {
-    margin-left: 10px; /* Adjust margin for very small screens */
+    margin-left: 10px;
     margin-right: 10px;
   }
 }

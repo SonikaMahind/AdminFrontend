@@ -27,7 +27,6 @@ function Dashboard() {
   <div>
         <h2>Tickets by Category</h2>
         <div className="chart"><TicketsChart /></div>
-         {/* Embed the chart here */}
       </div>
     </div>
     </div>
