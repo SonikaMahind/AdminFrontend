@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'; // For navigation
-import "../Styles/eventAddForm.css"; // Ensure this file contains your custom styles
+import "../Styles/eventEditForm.css"; // Ensure this file contains your custom styles
 
-
-function EventAddForm() {
+function EventEditForm({ eventId }) {
   const [formData, setFormData] = useState({
     title: '',
     description: '',
@@ -21,6 +20,16 @@ function EventAddForm() {
   const [isModalOpen, setModalOpen] = useState(false); // State to manage modal visibility
   const navigate = useNavigate(); // For navigation
 
+  useEffect(() => {
+    // Fetch existing event data when the component mounts
+    const fetchEventData = async () => {
+      const eventData = await getEventData(eventId); // Assume this function fetches the event data
+      setFormData(eventData);
+    };
+
+    fetchEventData();
+  }, [eventId]);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -29,18 +38,38 @@ function EventAddForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    
     try {
-      await addEventToDatabase(formData); 
+      await updateEventInDatabase(eventId, formData); // Assume this function updates the event
       setModalOpen(true);
     } catch (error) {
-      console.error('Error adding event:', error);
+      console.error('Error updating event:', error);
     }
   };
 
-  const addEventToDatabase = async (data) => {
-   
-    console.log('Adding event to database:', data);
+  const getEventData = async (id) => {
+    // Simulate fetching event data from a database
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve({
+          title: 'Sample Event',
+          description: 'This is a sample event description.',
+          date: '2023-10-01',
+          startTime: '10:00',
+          endTime: '12:00',
+          location: 'Sample Location',
+          category: 'Sample Category',
+          price: '20',
+          ticketsAvailable: '100',
+          promocode: 'SAVE20',
+          image: 'https://example.com/image.png'
+        });
+      }, 1000);
+    });
+  };
+
+  const updateEventInDatabase = async (id, data) => {
+    // Simulate updating event data in a database
+    console.log('Updating event in database:', id, data);
     return new Promise((resolve) => setTimeout(resolve, 1000));
   };
 
@@ -55,8 +84,8 @@ function EventAddForm() {
   }, [isModalOpen, navigate]);
 
   return (
-    <div className="eventaddform">
-      <h2>Add New Event</h2>
+    <div className="eventeditform">
+      <h2>Edit Event</h2>
       <form onSubmit={handleSubmit}>
         <label>
           Event Name:
@@ -83,7 +112,7 @@ function EventAddForm() {
           <input
             type="date"
             name="date"
-            value={formData.startdate}
+            value={formData.date}
             onChange={handleChange}
             required
           />
@@ -102,8 +131,8 @@ function EventAddForm() {
           End Date:
           <input
             type="date"
-            name="endDate" // Changed name to endDate to differentiate
-            value={formData.enddate}
+            name="endDate"
+            value={formData.endDate}
             onChange={handleChange}
             required
           />
@@ -175,15 +204,15 @@ function EventAddForm() {
             onChange={handleChange}
           />
         </label>
-        <button type="submit" className="submit-btn">Add Event</button>
+        <button type="submit" className="submit-btn">Update Event</button>
       </form>
 
       {isModalOpen && (
         <div className="modal">
           <div className="modal-content">
-          <img src='https://cdn-icons-png.flaticon.com/256/148/148767.png' alt="Success Icon" />
+            <img src='https://cdn-icons-png.flaticon.com/256/148/148767.png' alt="Success Icon" />
             <h3>Success!</h3>
-            <p>The event has been successfully added.</p>
+            <p>The event has been successfully updated.</p>
           </div>
         </div>
       )}
@@ -191,4 +220,4 @@ function EventAddForm() {
   );
 }
 
-export default EventAddForm;
+export default EventEditForm;
