@@ -10,12 +10,12 @@ const TicketsChart = () => {
       {
         label: 'Booked Tickets',
         backgroundColor: 'rgba(75, 192, 192, 0.6)',
-        data: [12, 19, 3], // Replace with actual data when fetching from API
+        data: [12, 19, 3],
       },
       {
         label: 'Cancelled Tickets',
         backgroundColor: 'rgba(255, 99, 132, 0.6)',
-        data: [2, 3, 1], // Replace with actual data when fetching from API
+        data: [2, 3, 1], 
       },
     ],
   };
